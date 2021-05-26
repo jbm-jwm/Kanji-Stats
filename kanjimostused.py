@@ -71,7 +71,7 @@ class KanjiStats(object):
             idxs = []
             for c, name in enumerate(self.col.models.fieldNames(m)):
                 for f in config['srcFields']:
-                    if name == f:
+                    if f.lower() in name.lower():
                         idxs.append(c)
             for row in self.col.db.execute("""
 select flds from notes where id in (
